@@ -1,0 +1,272 @@
+﻿/* ---------------------- Общие отступы для основного контента -------------------- */
+.content-section {
+    padding: 40px 30px; /* Внутренние отступы для всего блока контента */
+}
+
+/* ----------------------- Заголовки ---------------------------------------------- */
+
+.content-section h1 {
+    margin: 0 0 30px 0; /* Внешние отступы: 0 сверху, 0 справа, 30px снизу, 0 слева */
+    padding-bottom: 20px; /* Внутренний отступ снизу */
+    border-bottom: 3px solid #3b546e; /* Толстая линия-разделитель под заголовком */
+    font-size: 2.2em; /* Размер шрифта для главного заголовка */
+    color: #2c3e50; /* Цвет шрифта */
+}
+
+.content-section h2 {
+    margin: 40px 0 25px 0; /* Отступы для второстепенного заголовка */
+    padding-bottom: 15px; /* Внутренний отступ снизу */
+    border-bottom: 2px solid #4a6278; /* Линия-разделитель под заголовком */
+    color: #2c3e50; /* Цвет шрифта */
+    font-size: 1.8em; /* Размер шрифта */
+}
+
+.content-section h3 {
+    margin: 25px 0 15px 0; /* Отступы для заголовка третьего уровня */
+    color: #2c3e50; /* Цвет шрифта */
+    font-size: 1.4em; /* Размер шрифта */
+}
+
+/* ------------------------- Абзацы текста ----------------------------- */
+
+.content-section p {
+    margin-bottom: 20px; /* Отступ под абзацем */
+    line-height: 1.7; /* Межстрочный интервал для лучшей читаемости */
+    font-size: 1.05em; /* Размер шрифта чуть больше стандартного */
+    text-align: justify; /* Выравнивание текста по ширине */
+}
+
+/* ------------------------- Списки ------------------------------------ */
+
+.content-section ul, .content-section ol {
+    margin: 15px 0 25px 25px; /* Внешние отступы и отступ слева для списка */
+    padding: 0; /* Убираем внутренние отступы, чтобы маркеры начинались с нужного места */
+    list-style-position: outside; /* Маркеры (точки/цифры) находятся вне текста */
+}
+
+.content-section li {
+    margin-bottom: 10px; /* Отступ между элементами списка */
+    line-height: 1.6; /* Межстрочный интервал */
+    color: #3b546e; /* Цвет текста элемента списка */
+}
+
+
+/* -------------------------- Изображения ------------------------------- */
+
+.content-image {
+    width: 100%; /* Изображение занимает 100% ширины родительского контейнера */
+    max-width: 600px; /* Ограничиваем максимальную ширину для лучшего вида */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+    border-radius: 8px; /* Скругление углов */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Легкая тень */
+    margin: 20px 0 30px 0; /* Отступы вокруг изображения */
+    display: block; /* Делаем блочным элементом для корректной работы margin */
+}
+
+/* Оформление блоков, где текст и изображения могут быть рядом (для Flexbox) */
+.intro-section, .workflow, .equipment-info, .mobile-features, .security {
+    display: flex; /* Используем Flexbox для организации контента */
+    flex-direction: column; /* По умолчанию (на мобильных) элементы располагаются вертикально */
+}
+
+.intro-section .content-image {
+    order: -1; /* На мобильных (в режиме column) изображение идет первым */
+    margin-bottom: 15px; /* Отступ снизу для изображения */
+}
+
+/* ------------------ Сетка ------------------------------------------------ */
+
+.feature-grid {
+    display: grid; /* Используем Grid для создания сетки */
+    /* Создаем колонки, которые автоматически подстраиваются, 
+       минимальная ширина колонки 280px */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; /* Расстояние между элементами сетки */
+    margin: 30px 0; /* Отступы вокруг сетки */
+}
+
+.feature {
+    background: #fcfcfc; /* Светлый фон для карточки */
+    padding: 30px; /* Внутренние отступы */
+    border-radius: 8px; /* Скругление углов */
+    border-left: 5px solid #3b546e; /* Яркая полоса слева (для акцента) */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Легкая тень */
+    transition: transform 0.3s; /* Плавный переход для эффекта при наведении */
+}
+
+.feature:hover {
+    transform: translateY(-5px); /* Приподнимаем карточку при наведении */
+}
+
+.feature h3 {
+    margin-top: 0 !important; /* Принудительно убираем верхний отступ для заголовка внутри карточки */
+    color: #3b546e; /* Цвет заголовка */
+}
+
+/* --------------------- Статистика ------------------------------------------ */
+
+.stats {
+    display: flex; /* Используем Flexbox */
+    justify-content: space-around; /* Равномерное распределение элементов по ширине */
+    align-items: center; /* Выравнивание по центру по вертикали */
+    background: #ecf0f1; /* Светло-серый фон для блока статистики */
+    padding: 25px; /* Внутренние отступы */
+    border-radius: 8px; /* Скругление углов */
+    margin: 30px 0; /* Внешние отступы */
+    text-align: center; /* Выравнивание текста внутри элементов по центру */
+}
+
+.stat-item {
+    padding: 10px; /* Отступы внутри элемента статистики */
+    width: 30%; /* Ширина элемента */
+}
+
+.stat-item strong {
+    display: block; /* Делаем число блочным, чтобы оно занимало отдельную строку */
+    font-size: 2.5em; /* Большой размер шрифта для числа */
+    color: #2c3e50; /* Цвет числа */
+    margin-bottom: 5px; /* Отступ под числом */
+}
+
+.stat-item span {
+    font-size: 1em; /* Размер шрифта для описания */
+    color: #4a6278; /* Цвет описания */
+}
+
+/* --- Секция призыва к действию ---------------------------------------------- */
+
+.cta-section {
+    text-align: center; /* Выравнивание всего контента по центру */
+    background: #3b546e; /* Темно-синий фон */
+    color: white; /* Белый текст */
+    padding: 50px 40px; /* Большие внутренние отступы */
+    border-radius: 8px; /* Скругление углов */
+    margin: 50px 0 30px 0; /* Внешние отступы */
+}
+
+.cta-section h3 {
+    color: white; /* Белый цвет заголовка (переопределяет основной) */
+    margin-bottom: 20px !important; /* Отступ снизу для заголовка */
+}
+
+.cta-button {
+    background: #e74c3c; /* Основной красный цвет для кнопки */
+    color: white; /* Белый текст */
+    border: none; /* Убираем рамку */
+    padding: 12px 25px; /* Внутренние отступы */
+    border-radius: 5px; /* Скругление углов */
+    font-size: 1.1em; /* Размер шрифта */
+    cursor: pointer; /* Указатель курсора */
+    margin: 10px; /* Отступ вокруг кнопки */
+    transition: background 0.3s; /* Плавный переход цвета фона */
+}
+
+.cta-button:hover {
+    background: #c0392b; /* Цвет фона при наведении */
+}
+
+.cta-button.secondary {
+    background: none; /* Убираем фон */
+    border: 2px solid white; /* Добавляем белую рамку */
+}
+
+.cta-button.secondary:hover {
+    background: rgba(255, 255, 255, 0.1); /* Слегка затемняем фон при наведении */
+}
+
+/* ------------------- Медиа-запросы (Адаптивность) --------------------------- */
+
+@media (min-width: 768px) {
+    /* Стили применяются на экранах шириной от 768px и более (десктоп, планшет) */
+    
+    /* Располагаем текст и изображения рядом */
+    .intro-section, .workflow, .equipment-info, .mobile-features, .security {
+        flex-direction: row; /* Элементы располагаются горизонтально */
+        align-items: center; /* Выравнивание по центру по вертикали */
+        gap: 30px; /* Расстояние между элементами */
+    }
+    
+    /* Текст и списки занимают оставшееся пространство */
+    .intro-section p, .workflow p, .equipment-info p, .mobile-features p, .security p, 
+    .equipment-info ul {
+        flex: 1; 
+    }
+
+    .intro-section .content-image {
+        order: 0; /* Изображение возвращается на стандартное место */
+        margin: 0; /* Убираем вертикальные отступы */
+    }
+
+    /* Ограничиваем ширину изображений */
+    .workflow .content-image, .equipment-info .content-image, .mobile-features .content-image {
+        max-width: 400px; /* Максимальная ширина */
+        flex-shrink: 0; /* Изображение не сжимается */
+        margin: 0; /* Убираем вертикальные отступы */
+    }
+}
+
+@media (max-width: 767px) {
+    /* Стили применяются на экранах шириной до 767px (мобильные устройства) */
+    
+    .content-section {
+        padding: 20px 15px; /* Меньшие отступы по краям */
+    }
+    
+    .content-section h1 {
+        font-size: 1.8em;
+        margin: 0 0 20px 0;
+    }
+    
+    .content-section h2 {
+        font-size: 1.5em;
+        margin: 30px 0 20px 0;
+    }
+    
+    .content-section h3 {
+        font-size: 1.2em;
+        margin: 20px 0 12px 0;
+    }
+    
+    .content-section p {
+        margin-bottom: 15px;
+        line-height: 1.6;
+        font-size: 1em;
+    }
+    
+    .feature-grid {
+        grid-template-columns: 1fr; /* Одна колонка */
+        gap: 20px;
+    }
+    
+    .feature {
+        padding: 20px;
+    }
+    
+    .stats {
+        flex-direction: column; /* Элементы статистики располагаются вертикально */
+        gap: 20px;
+    }
+    
+    .stat-item {
+        width: 100%; /* Элементы статистики занимают всю ширину */
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .cta-section {
+        padding: 30px 20px;
+        margin: 40px 0 20px 0;
+    }
+    
+    .cta-button {
+        display: block; /* Кнопки становятся блочными */
+        width: 100%; /* Занимают всю ширину */
+        margin: 10px 0;
+        max-width: 300px;
+    }
+}
+
+/* --- Плавная анимация (для визуального эффекта при загрузке или изменении) --- */
+.content-section h1, .content-section h2, .content-section h3, .content-section p, .feature, .stats {
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Анимация прозрачности и сдвига */
+}
