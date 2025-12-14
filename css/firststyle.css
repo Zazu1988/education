@@ -123,6 +123,7 @@ nav a:hover {
     align-items: center;
     width: 100%;
     height: 100%;
+	gap: 10px;/* Применяем интервал между иконкой и текстом внутри ссылки */
 }
 
 /* ---------------------Свернутое состояние (СНИЗУ-ВВЕРХ) --------------------------*/
@@ -213,4 +214,5 @@ footer {
 	align-items: center;
 	justify-content: center;
 	z-index: 100; /* Добавляем z-index выше, чем у left-side */
+
 }
