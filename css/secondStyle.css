@@ -29,6 +29,7 @@
     background-color: #ffeb3b; /* Ярко-желтый */
     border-radius: 50%;
     z-index: 10;
+    box-shadow: none;/* нет обводки */
 }
 
 /* ------------------Мост — контейнер арок---------------*/
@@ -120,4 +121,5 @@
 .w1 { bottom: -15px; left: -8px; }
 .w2 { bottom: -5px; left: 45px; }
 .w3 { bottom: -20px; left: 97px; }
+
 .w4 { bottom: -15px; left: 156px; }
