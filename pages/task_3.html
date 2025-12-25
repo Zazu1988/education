@@ -1,0 +1,106 @@
+﻿<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Задание №3</title>
+	<link rel="stylesheet" href="../css/firststyle.css">
+	<link rel="stylesheet" href="css/thirdStyle.css">
+	<link rel="stylesheet" href="../css/logo.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-content"> 
+                <div class="sun">
+                    <div class="label">El-energy</div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Главная</a></li>
+                <li><a href="#">Заявки</a></li>
+                <li><a href="#">Оборудование</a></li>
+                <li><a href="#">Отчеты</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="control-bar" id="controlBar">
+        <button class="toggle-btn-top" onclick="toggleSidebar()">
+            <span class="btn-text">Свернуть меню</span>
+            <span class="arrow">↑</span>
+        </button>
+    </div>
+
+    <div class="left-side" id="leftSide">
+        <div class="menu-content">
+            <div class="menu-item">
+                <a href="" class="menu-link">  <span class="icon">📁</span>
+                    <span class="text">Задание_2</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="" class="menu-link">  <span class="icon">📁</span>
+                    <span class="text">Задание_3</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="" class="menu-link">  <span class="icon">📁</span>
+                    <span class="text">Задание_4</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="" class="menu-link">  <span class="icon">📁</span>
+                    <span class="text">Задание_5</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="" class="menu-link">  <span class="icon">📁</span>
+                    <span class="text">Курсовая работа</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+	<div class="wrapper">
+		<label class="card">
+		<input type="checkbox" />
+
+		<div class="label-static">Магазин "Поваренок"</div>
+		<div class="label-hover">Жаропрочная посуда</div>
+
+		<img src="images/kitchen.jpg" class="img base" alt="">
+		<img src="images/pot.png" class="img pot" alt="">
+		<img src="images/lid.png" class="img lid" alt="">
+		</label>
+	</div>
+	<footer>
+        	<div class="footer-content">
+            		&copy; 2025. Все права защищены.
+        	</div>
+    	</footer>
+    	<script>
+    		function toggleSidebar() {
+        	const leftSide = document.getElementById('leftSide');
+        	const mainContent = document.getElementById('mainContent');
+        	const btnText = document.querySelector('.toggle-btn-top .btn-text');
+        	const arrow = document.querySelector('.toggle-btn-top .arrow');
+        
+        	// Переключаем классы для вертикального сворачивания
+        	leftSide.classList.toggle('collapsed-vertical'); 
+        	mainContent.classList.toggle('collapsed-main-vertical'); 
+        
+        	// Меняем текст кнопки и стрелку
+        	if (leftSide.classList.contains('collapsed-vertical')) {
+            		btnText.textContent = 'Развернуть меню';
+            		arrow.textContent = '↓';
+        	} else {
+            	btnText.textContent = 'Свернуть меню';
+            		arrow.textContent = '↑';
+        	}
+    	}
+</script>
+<script>
+
+</body>
