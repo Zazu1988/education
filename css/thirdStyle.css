@@ -1,0 +1,171 @@
+﻿/*--------------------- FLEX контейнер---------------------------- */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* -----------------------Карточка ---------------------------------*/
+.card {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  cursor: pointer;
+}
+
+/*----------------- -------Скрыть checkbox ------------------------*/
+.card input {
+  display: none;
+}
+
+/*------------------------- Общие стили картинок ---------------------*/
+.img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+/*--------------------------Размеры картинок--------------------------*/
+.base {
+  width: 100%;
+  height: 100%;
+}
+
+.pot {
+  width: 70%;
+  height: 70%;
+}
+
+.lid {
+  width: 33%;
+  height: 33%;
+}
+
+/* -------------------------Базовая картинка -------------------------*/
+.base {
+  z-index: 1;
+}
+
+/*-------------------------- Кастрюля ---------------------------------*/
+.pot {
+  z-index: 2;
+  opacity: 0;
+  transform: translate(20px, 50px) scale(0.75);
+  transition: opacity 1.8s ease, transform 1.8s ease;
+}
+
+/*-------------------------- Hover — кастрюля появляется-----------------*/
+.card:hover .pot {
+  opacity: 0.8;
+  animation: pulse 2.8s ease-in-out infinite;
+}
+
+/*----------------------------Фиксация по клику -------------------------*/
+.card input:checked ~ .pot {
+  opacity: 1;
+  animation: none;
+  transform: translate(20px, 50px) scale(0.75);
+}
+
+/*---------------------------- Крышка -----------------------------------*/
+.lid {
+  z-index: 3;
+  opacity: 0;
+  transform-origin: 100% 100%; /* вращение вокруг правого нижнего угла*/
+  transform: translate(95px, 70px) rotate(0deg); /* Начальное положение без поворота */
+}
+
+/*---------------------------- Хлопок крышки -----------------------------*/
+.card input:checked ~ .lid {
+  opacity: 1;
+  animation: lid-slap 0.5s ease-in-out infinite;
+}
+
+/* ----------------------------Тряска контейнера -------------------------*/
+.wrapper:has(.card input:checked) {
+  animation: shake 0.35s ease-in-out infinite;
+}
+
+/*-------------------------- Надписи -----------------------------------*/
+
+/* Статичная (Магазин "Поваренок") */
+.label-static {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  z-index: 4;
+  opacity: 1;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+/*При наведении (Жаропрочная посуда) */
+.label-hover {
+  position: absolute;
+  left: 10px;
+  top: 80%;
+  transform: translateY(-20%) rotate(-90deg);
+  transform-origin: left center;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: red;
+  z-index: 4;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+  white-space: nowrap;
+  padding-left: 5px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* При наведении на карточку: скрываем статичную, показываем hover */
+.card:hover .label-static {
+  opacity: 0;
+}
+
+.card:hover .label-hover {
+  opacity: 1;
+}
+
+/* При клике (чекбокс отмечен) - скрываем только черную надпись */
+.card input:checked ~ .label-static {
+  opacity: 0;
+}
+
+/* Красная надпись видна и при наведении, и при клике */
+.card:hover .label-hover,
+.card input:checked ~ .label-hover {
+  opacity: 1;
+}
+
+/*---------------- ---------- Анимации ----------------------------------- */
+
+@keyframes pulse {
+  0% {transform: translate(20px, 50px) scale(0.75);}
+  50% {transform: translate(20px, 50px) scale(1.05);}
+  100% {transform: translate(20px, 50px) scale(0.75);}
+}
+
+@keyframes lid-slap {
+  0% {transform: translate(95px, 70px) rotate(0deg);} /* Начало без поворота */
+  20% {transform: translate(95px, 70px) rotate(-20deg);} /* Небольшой подъем с поворотом против часовой */
+  40% {transform: translate(95px, 70px) rotate(-35deg);} /* Пик подъема с максимальным поворотом */
+  60% {transform: translate(95px, 70px) rotate(-20deg);} /* Первый отскок */
+  80% {transform: translate(95px, 70px) rotate(-10deg);} /* Второй отскок */
+  100% {transform: translate(95px, 70px) rotate(0deg);} /* Возврат в исходное без поворота */    
+}
+
+@keyframes shake {
+  0% {transform: translateX(0);}
+  25% {transform: translateX(-3px);}
+  50% {transform: translateX(3px);}
+  75% {transform: translateX(-2px);}
+  100% {transform: translateX(0);}
+}
