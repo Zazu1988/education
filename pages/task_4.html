@@ -1,0 +1,107 @@
+﻿<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Задание №4</title>
+	<link rel="stylesheet" href="../css/firststyle.css">
+	<link rel="stylesheet" href="../css/forthStyle.css">
+	<link rel="stylesheet" href="../css/logo.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-content"> 
+                <div class="sun">
+                    <div class="label">El-energy</div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Главная</a></li>
+                <li><a href="#">Заявки</a></li>
+                <li><a href="#">Оборудование</a></li>
+                <li><a href="#">Отчеты</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="control-bar" id="controlBar">
+        <button class="toggle-btn-top" onclick="toggleSidebar()">
+            <span class="btn-text">Свернуть меню</span>
+            <span class="arrow">↑</span>
+        </button>
+    </div>
+
+    <div class="left-side" id="leftSide">
+        <div class="menu-content">
+            <div class="menu-item">
+                <a href="task_2.html" class="menu-link">  <span class="icon">📁</span>
+                    <span class="text">Задание_2</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="task_3.html" class="menu-link">  <span class="icon">📁</span>
+                    <span class="text">Задание_3</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="task_4.html" class="menu-link">  <span class="icon">📁</span>
+                    <span class="text">Задание_4</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="" class="menu-link">  <span class="icon">📁</span>
+                    <span class="text">Задание_5</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="" class="menu-link">  <span class="icon">📁</span>
+                    <span class="text">Курсовая работа</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="site-container">
+        <main id="mainContent">
+            <h2>Вывод фраз</h2>
+            <button id="showBtn">Показать фразу</button>
+            <button id="repaintBtn">Перекрасить</button>
+            <button id="createBtn">Создать</button> <div id="output"></div>
+        </main>
+
+        <aside>
+            <h2>Список фраз</h2> <ol id="phraseList"></ol>
+        </aside>
+    </div>	
+
+
+    
+	<footer>
+        	<div class="footer-content">
+            		&copy; 2025. Все права защищены.
+        	</div>
+    	</footer>
+
+	<script src="../js/firstScriptForTask4.js"></script>
+
+    	<script>
+    		function toggleSidebar() {
+    			const leftSide = document.getElementById('leftSide');
+    			const container = document.querySelector('.site-container');
+    			const btnText = document.querySelector('.toggle-btn-top .btn-text');
+    
+    			leftSide.classList.toggle('collapsed-vertical');
+    			container.classList.toggle('collapsed-main-vertical');
+
+    			if (leftSide.classList.contains('collapsed-vertical')) {
+        			btnText.textContent = 'Развернуть меню';
+    			} else {
+        			btnText.textContent = 'Свернуть меню';
+    			}			
+		}
+	</script>
+<script>
+
+</body>
