@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: calc(100vh - 170px);
 }
 
 /* -----------------------Карточка ---------------------------------*/
@@ -168,4 +168,5 @@
   50% {transform: translateX(3px);}
   75% {transform: translateX(-2px);}
   100% {transform: translateX(0);}
+
 }
