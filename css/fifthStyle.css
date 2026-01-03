@@ -1,0 +1,84 @@
+﻿/*------------БАЗОВЫЕ НАСТРОЙКИ СТРАНИЦЫ--------------- */
+body {
+    margin: 0;
+    padding: 0;
+    background: #f2f2f2; /*светло-серый фон для всей страницы*/
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center; /*центрирует текст и заголовки*/
+}
+
+h2 {
+    /* Убираем верхний отступ полностью, чтобы прижать заголовок к верху main */
+    margin-top: 0; 
+    margin-bottom: 10px;
+    color: #333;
+}
+
+p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/*---------------ИГРОВОЙ КОНТЕЙНЕР (ПОЛЕ) --------------------*/
+#game-container {
+    position: relative; /*делает поле точкой отсчета для координат картинок*/
+    width: 100%; /*занимает всю ширину .content-section*/
+    height: 500px; /*фиксированная высота поля*/
+    margin-top: 5px; /*минимальный зазор между текстом и полем */
+    background: #ffffff; /*белое полотно для игры*/
+    border: 2px solid #ccc; /*рамка игрового поля*/
+    border-radius: 10px; /*скругленные углы поля*/
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /*легкая тень*/
+    overflow: hidden; /*скрывает части картинок, если они вылезли за границу*/
+}
+
+/*---------------ОБЩИЙ СТИЛЬ ДЛЯ ВСЕХ КАРТИНОК------------------*/
+.item {
+    position: absolute; /*позволяет JavaScript свободно менять координаты left и top*/
+    cursor: grab; /*курсор "ладошка" при наведении*/
+    user-select: none; /*запрещает случайное выделение картинки как текста*/
+    transition: transform 0.3s ease; /*плавная анимация при двойном клике (повороте)*/
+    -webkit-user-drag: none; /*отключает браузерное перетаскивание картинки как файла*/
+    z-index: 1; /*обычный слой для всех*/
+}
+
+/*состояние при захвате мышкой*/
+.item:active {
+    cursor: grabbing; /*курсор "кулак" при зажатии*/
+    z-index: 100; /*поднимает текущую картинку над всеми остальными*/
+}
+
+/*-------------------ИНДИВИДУАЛЬНЫЕ РАЗМЕРЫ----------------------- */
+
+#dog { width: 90px; }
+#cat { width: 50px; }
+#cow { width: 150px; }
+#bird1 { width: 50px; }
+#bird2 { width: 80px; }
+#bee { width: 60px; }
+#butterfly { width: 80px; }
+
+/*-----------------------ЭКРАН ПОБЕДЫ-------------------------------------- */
+#win {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(46, 204, 113, 0.9); 
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none; 
+    transition: opacity 0.6s ease-in-out;
+    z-index: 2000;
+}
+
+#win.show {
+    opacity: 1;
+    pointer-events: auto;
+}
