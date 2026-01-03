@@ -4,7 +4,7 @@
     justify-content: center; /* Центрируем контент по горизонтали */
     align-items: center; /* Центрируем контент по вертикали */
     min-height: 80vh; /* 80% от высоты области просмотра */
-
+    transition: margin-left 0.3s ease;
 }
 
 /*-----------------ОСНОВНАЯ СЦЕНА-----------------------*/
@@ -123,3 +123,4 @@
 .w3 { bottom: -20px; left: 97px; }
 
 .w4 { bottom: -15px; left: 156px; }
+
