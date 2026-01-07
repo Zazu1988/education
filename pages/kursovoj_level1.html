@@ -1,0 +1,113 @@
+﻿<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Курсовой проект уровень 1</title>
+	<link rel="stylesheet" href="../css/firststyle.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/logo.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-content"> 
+                <div class="sun">
+                    <div class="label">El-energy</div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Главная</a></li>
+                <li><a href="#">Заявки</a></li>
+                <li><a href="#">Оборудование</a></li>
+                <li><a href="#">Отчеты</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="control-bar" id="controlBar">
+        <button class="toggle-btn-top" onclick="toggleSidebar()">
+            <span class="btn-text">Свернуть меню</span>
+            <span class="arrow">↑</span>
+        </button>
+    </div>
+
+    <div class="left-side" id="leftSide">
+        <div class="menu-content">
+            <div class="menu-item">
+                <a href="task_2.html" class="menu-link">  <span class="icon">📁</span>
+                    <span class="text">Задание_2</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="task_3.html" class="menu-link">  <span class="icon">📁</span>
+                    <span class="text">Задание_3</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="task_4.html" class="menu-link">  <span class="icon">📁</span>
+                    <span class="text">Задание_4</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="task_5.html" class="menu-link">  <span class="icon">📁</span>
+                    <span class="text">Задание_5</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="kursovoj.html" class="menu-link">  <span class="icon">📁</span>
+                    <span class="text">Курсовая работа</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <main id="mainContent">
+        <div class="game-header">
+            <div>Игрок: <span id="playerName"></span></div>
+            <div>Очки: <span id="score">0</span></div>
+            <div>Уровень: <span id="level">1</span></div>
+            <div>Время: <span id="time">60</span> сек</div>
+         </div>
+            <div id="gameArea" class="level-container">
+            <h2 id="taskText">Загрузка задания...</h2>
+            <div id="itemsContainer"></div>
+            </div>
+    </main>	
+	<div class="debug-nav">
+        	<button onclick="goToMain()">Главная</button>
+        	<button onclick="debugNavigate('kursovoj_level1.html')">Ур. 1</button>
+        	<button onclick="debugNavigate('kursovoj_level2.html')">Ур. 2</button>
+        	<button onclick="debugNavigate('kursovoj_level3.html')">Ур. 3</button>
+    	</div>
+	<footer>
+        	<div class="footer-content">
+            		&copy; 2025. Все права защищены.
+        	</div>
+    	</footer>
+
+	<script src="../js/data.js"></script>
+        <script src="../js/auth.js"></script>
+        <script src="../js/game.js"></script>
+        <script src="../js/level1.js"></script>
+
+    	<script>
+    		function toggleSidebar() {
+    			const leftSide = document.getElementById('leftSide');
+    			const container = document.querySelector('.site-container');
+    			const btnText = document.querySelector('.toggle-btn-top .btn-text');
+    
+    			leftSide.classList.toggle('collapsed-vertical');
+    			mainContent.classList.toggle('collapsed-main-vertical');
+
+    			if (leftSide.classList.contains('collapsed-vertical')) {
+        			btnText.textContent = 'Развернуть меню';
+    			} else {
+        			btnText.textContent = 'Свернуть меню';
+    			}			
+		}
+	</script>
+<script>
+
+</body>
