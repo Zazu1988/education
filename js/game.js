@@ -59,7 +59,7 @@ function endGame() {
         finalizeGame();
     } else {
         alert(`Время вышло! Ваш счет: ${gameState.score}`);
-        window.location.href = 'kursovoj.html'; //возврат на экран входа
+        window.location.href = '../pages/kursovoj.html'; //возврат на экран входа
     }
 }
 
@@ -79,7 +79,8 @@ function finalizeGame() {
         localStorage.setItem('gameHistory', JSON.stringify(history));
     }
     //переход к таблице рекордов
-    window.location.href = 'kursovoj_rating.html';
+    window.location.href = '../pages/kursovoj_rating.html';
 
 }
+
 
