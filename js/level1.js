@@ -1,4 +1,4 @@
-﻿const taskText = document.getElementById('taskText'); /элемент для вывода текста задания
+﻿const taskText = document.getElementById('taskText'); //элемент для вывода текста задания
 const container = document.getElementById('itemsContainer'); //область для вывода карточек
 
 //весь список задач для раундов
@@ -67,3 +67,4 @@ function startTask() {
 }
 
 startTask(); //запуск игры
+
