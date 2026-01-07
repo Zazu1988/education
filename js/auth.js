@@ -17,7 +17,7 @@ function startGame() {
     const player = { name: playerName, score: 0, level: 1 };
     localStorage.setItem('currentPlayer', JSON.stringify(player));
     //ПЕРЕХОД к первому уровню
-    window.location.href = '../pages/kursovoj_level1.html';
+    window.location.href = 'kursovoj_level1.html';
 }
 
 //функция для кнопок "Ур. 1", "Ур. 2" и т.д. для отладки
@@ -42,6 +42,7 @@ function retryGame(name) {
 function goToMain() {
     //очищаем текущего игрока
     localStorage.removeItem('currentPlayer');
-    window.location.href = '../pages/kursovoj.html';
+    window.location.href = 'kursovoj.html';
 
 }
+
