@@ -55,11 +55,11 @@ function endGame() {
     saveProgress();
 
     //если время вышло на финальном уровне — сохраняем в таблицу рекордов
-    if (window.location.href.includes('kursovoj_level3.html')) {
+    if (window.location.href.includes('../pages/kursovoj_level3.html')) {
         finalizeGame();
     } else {
         alert(`Время вышло! Ваш счет: ${gameState.score}`);
-        window.location.href = 'kursovoj.html'; //возврат на экран входа
+        window.location.href = '../pages/kursovoj.html'; //возврат на экран входа
     }
 }
 
@@ -79,5 +79,6 @@ function finalizeGame() {
         localStorage.setItem('gameHistory', JSON.stringify(history));
     }
     //переход к таблице рекордов
-    window.location.href = 'kursovoj_rating.html';
+    window.location.href = '../pages/kursovoj_rating.html';
+
 }
