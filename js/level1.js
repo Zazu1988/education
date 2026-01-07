@@ -23,7 +23,7 @@ function startTask() {
         saveProgress(); //сохраняем очки (функция из game.js)
         alert("Уровень 1 пройден! Переходим к сортировке.");
         //переход на второй уровень
-        window.location.href = 'kursovoj_level2.html';
+        window.location.href = '../pages/kursovoj_level2.html';
         return;
     }
 
@@ -65,4 +65,5 @@ function startTask() {
         container.appendChild(card); //добавляем на страницу
     });
 }
+
 startTask(); //запуск игры
