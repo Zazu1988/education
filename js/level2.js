@@ -55,12 +55,20 @@ bins.forEach(b => {
         const data = JSON.parse(e.dataTransfer.getData('j'));
         const cur = tasks[round];
         if (data[cur.key] === b.dataset.target) {
-            updateScore(15); document.querySelector('.dragging').remove();
-            if (container.children.length === 0) { round++; setTimeout(initLevel, 500); }
-        } else { updateScore(-10); b.style.animation = "shake 0.5s"; setTimeout(()=>b.style.animation="",500); }
+            updateScore(15); 
+            document.querySelector('.dragging').remove();
+            if (container.children.length === 0) { 
+                round++; 
+                setTimeout(initLevel, 500); 
+            }
+        } else { updateScore(-10); 
+                b.style.animation = "shake 0.5s"; 
+                setTimeout(()=>b.style.animation="",500); 
+               }
     };
 });
 
 initLevel(); //запуск
+
 
 
