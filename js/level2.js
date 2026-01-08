@@ -50,26 +50,17 @@ function initLevel() {
 
 //настройка зон приема КОРЗИН
 bins.forEach(b => {
-    b.ondragover = e => e.preventDefault(); //разрешаем "бросать" в корзину
+    b.ondragover = e => e.preventDefault();
     b.ondrop = e => {
-        const data = JSON.parse(e.dataTransfer.getData('j')); //получаем данные предмета
+        const data = JSON.parse(e.dataTransfer.getData('j'));
         const cur = tasks[round];
-        //проверяем, в ту ли корзину попал предмет
         if (data[cur.key] === b.dataset.target) {
-            updateScore(15); // +15 очков за успех
-            //если предметов больше нет, переходим к след. раунду
-            if (container.querySelectorAll('.item').length <= 1) {
-                round++;
-                setTimeout(initLevel, 500);
-            }
-        } else {
-            updateScore(-10); // -10 очков за ошибку
-        }
-        //удаляем предмет с поля после броска
-        const dragged = document.querySelector('.dragging');
-        if (dragged) dragged.remove();
+            updateScore(15); document.querySelector('.dragging').remove();
+            if (container.children.length === 0) { round++; setTimeout(initLevel, 500); }
+        } else { updateScore(-10); b.style.animation = "shake 0.5s"; setTimeout(()=>b.style.animation="",500); }
     };
 });
 
 initLevel(); //запуск
+
 
