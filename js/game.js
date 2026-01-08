@@ -21,16 +21,23 @@ if (scoreField) scoreField.textContent = gameState.score;
 if (levelField) levelField.textContent = gameState.level;
 
 //настройка таймера (60 секунд на уровень)
-let timeLeft = 60;
-const timer = setInterval(() => {
-    timeLeft--;
-    if (timeField) timeField.textContent = timeLeft; //обновляем цифры на экране
+//ЗАПУСК ТАЙМЕРА ТОЛЬКО НА ИГРОВЫХ СТРАНИЦАХ
+let timer = null;
 
-    if (timeLeft <= 0) {
-        clearInterval(timer); //останавливаем таймер
-        endGame(); //запускаем завершение игры
-    }
-}, 1000);
+if (playerData && timeField) {
+    let timeLeft = 60;
+    timeField.textContent = timeLeft;
+
+    timer = setInterval(() => {
+        timeLeft--;
+        timeField.textContent = timeLeft;
+
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            endGame();
+        }
+    }, 1000);
+}
 
 //функция изменения счета (вызывается из level1.js, level2.js и т.д.)
 function updateScore(value) {
@@ -93,6 +100,7 @@ function finalizeGame() {
     window.location.href = '../pages/kursovoj_rating.html';
 
 }
+
 
 
 
