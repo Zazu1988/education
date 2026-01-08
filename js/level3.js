@@ -1,4 +1,4 @@
-﻿let isPaused = false;
+﻿let isPaused = false; //флаг паузы
 const gameArea = document.getElementById('gameArea'); //зона падения
 
 //все возможные задания
@@ -60,3 +60,4 @@ function spawn() {
 
 //каждую секунду создаем новый предмет
 const spawnInterval = setInterval(spawn, 1000);
+
