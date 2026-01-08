@@ -14,6 +14,7 @@ function initLevel() {
     //переход на 3 уровень после 3-х раундов
     if (round >= 3) { 
         saveProgress(); 
+        setLevel(3);
         window.location.href = '../pages/kursovoj_level3.html'; 
         return; 
     }
@@ -71,3 +72,4 @@ bins.forEach(b => {
 });
 
 initLevel(); //запуск
+
