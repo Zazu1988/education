@@ -46,6 +46,17 @@ function saveProgress() {
     }
 }
 
+//функция смены уровня игры
+function setLevel(newLevel) {
+    gameState.level = newLevel;
+    if (levelField) levelField.textContent = newLevel;
+
+    if (playerData) {
+        playerData.level = newLevel;
+        localStorage.setItem('currentPlayer', JSON.stringify(playerData));
+    }
+}
+
 //завершение игры по истечении времени
 function endGame() {
     clearInterval(timer);
@@ -82,5 +93,6 @@ function finalizeGame() {
     window.location.href = '../pages/kursovoj_rating.html';
 
 }
+
 
 
