@@ -15,8 +15,13 @@ document.getElementById('taskText').textContent = curTask.text;
 
 let gameSpeed = 3; //скорость падения
 
+//Останавливаем игру, если пользователь ушел с вкладки
+document.addEventListener('visibilitychange', () => {
+    isPaused = document.hidden; 
+});
+
 function spawn() {
-    if (isPaused) return; //если игра на паузе (например, конец времени)
+    if (isPaused) return; //если игра на паузе или вкладка скрыта — ничего не создаем
     
     //шанс 60%, что появится нужный предмет
     const isTarget = Math.random() < 0.6;
@@ -60,4 +65,5 @@ function spawn() {
 
 //каждую секунду создаем новый предмет
 const spawnInterval = setInterval(spawn, 1000);
+
 
