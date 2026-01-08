@@ -21,9 +21,9 @@ function startGame() {
 }
 
 //функция для кнопок "Ур. 1", "Ур. 2" и т.д. для отладки
-function debugNavigate(targetUrl) {
+function debugNavigate(targetUrl,level) {
     //создаем сессию "Гостя", чтобы страницы уровней не выдавали ошибок
-    const guestPlayer = { name: "Гость", score: 0, level: 1 };
+    const guestPlayer = { name: "Гость", score: 0, level: level };
     localStorage.setItem('currentPlayer', JSON.stringify(guestPlayer));
     //переходим по адресу (адрес уже должен включать нужный файл внутри pages)
     window.location.href = targetUrl;
@@ -45,5 +45,6 @@ function goToMain() {
     window.location.href = '../pages/kursovoj.html';
 
 }
+
 
 
